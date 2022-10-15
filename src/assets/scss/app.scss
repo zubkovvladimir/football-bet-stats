@@ -1,0 +1,12 @@
+@import '~reset.css/reset.css';
+@import '~normalize.css/normalize.css';
+
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+
+@import '~antd/dist/antd.css';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
