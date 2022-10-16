@@ -9,4 +9,23 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  background-color: #525252;
+}
+
+.ant-table.ant-table-middle {
+  font-size: 12px;
+  background-color: #000;
+  color: #fff;
+}
+
+.ant-table-thead,
+.ant-table-thead > tr > th {
+  background-color: #000;
+  color: #fff;
+}
+
+.ant-table-tbody > tr.ant-table-row:hover > td,
+.ant-table-tbody > tr > td.ant-table-cell-row-hover {
+  background: #fafafa;
+  color: #000;
 }
