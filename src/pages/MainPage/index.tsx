@@ -13,41 +13,11 @@ const { Column } = AntTable;
 const MainPage: FC = () => {
   const dispatch = useDispatch();
   const { items: football, isLoading } = useTypedSelector((state) => state.football);
-  const [flag, setFlag] = useState(false);
   console.log(football);
 
-  // setTimeout(() => {
-  //   setFlag(true);
-  // }, 10000);
-
   useEffect(() => {
-    // while (true) {
-    //   setTimeout(() => {
-    //     dispatch(fetchFootball({}));
-    //   }, 500);
-    // }
     dispatch(fetchFootball({}));
   }, []);
-
-  const data = football.filter((game) => {
-    const isStats = game.SC.ST;
-
-    if (isStats) {
-      const corners = game.SC.ST[0].Value.find((item) => item.ID === 70);
-      const isTime = game.SC.TS;
-      const isTimeLessThan70 = game.SC.TS < 4200;
-
-      if (corners && isTime && isTimeLessThan70) {
-        const isManyCorners = corners.S1 >= 5 || corners.S2 >= 5;
-
-        if (isManyCorners) {
-          return game;
-        }
-      }
-    }
-  });
-
-  console.log(data);
 
   useTitle(`${appName} | Главная`);
 
@@ -55,10 +25,9 @@ const MainPage: FC = () => {
     <div
       style={{
         padding: '30px',
-        // maxWidth: '700px',
       }}
     >
-      <AntTable<Book> dataSource={data} loading={isLoading} rowKey={(item) => item.I} size="middle">
+      <AntTable<Book> dataSource={football} loading={isLoading} rowKey={(item) => item.I} size="middle">
         <Column<Book> dataIndex="L" key="L" title="Турнир" />
         <Column<Book> key="O1" render={(game) => `${game.O1} -- ${game.O2}`} title="Команды" />
         <Column<Book>

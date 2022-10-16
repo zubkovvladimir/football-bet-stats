@@ -8,22 +8,16 @@ import { axios } from 'utils/axios';
 const getList = async (params: ParamsFetchAll): ApiResponseWithMeta<FootballBase> => {
   try {
     const formParams = { ...params };
-    const { pageSize = 8, sort, search } = params;
 
     if (!params.page || Number.isNaN(params.page)) formParams.page = 1;
 
-    const res = await axios.get<any>(endpoints.football.list(), {
-      // headers: { 'Access-Control-Allow-Origin': '*' },
-      // transformRequest: (data, headers) => {
-      //   console.log(headers);
-      //   delete headers.common.Accept;
-      //   return data;
-      // },
-    });
+    const res = await axios.get<any>(endpoints.football.list());
 
-    console.log(res.data.Value);
+    console.log(res);
 
-    return { data: res.data.Value };
+    console.log(res.data.football);
+
+    return { data: res.data.football };
   } catch (error) {
     const errorAxios = error as AxiosError<any>;
 
