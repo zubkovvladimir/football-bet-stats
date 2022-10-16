@@ -23,9 +23,11 @@ const MainPage: FC = () => {
 
   return (
     <div
-      style={{
-        padding: '30px',
-      }}
+      style={
+        {
+          // padding: '30px',
+        }
+      }
     >
       <AntTable<Book> dataSource={football} loading={isLoading} rowKey={(item) => item.I} size="middle">
         <Column<Book> dataIndex="L" key="L" title="Турнир" />
