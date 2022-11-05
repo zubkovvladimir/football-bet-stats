@@ -38,7 +38,7 @@ const MainPage: FC = () => {
         }}
         size="middle"
       >
-        <Column<Book> dataIndex="L" key="L" title="Турнир" />
+        {/* <Column<Book> dataIndex="L" key="L" title="Турнир" /> */}
         <Column<Book> key="O1" render={(game) => `${game.O1} -- ${game.O2}`} title="Команды" />
         <Column<Book>
           key={(game) => game.SC.ST[0].Value.find((item) => item.ID === 70)}
