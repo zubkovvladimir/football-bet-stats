@@ -10,4 +10,8 @@ import { App } from './App';
 
 const AppWithSetup = setup(App);
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js');
+}
+
 render(<AppWithSetup />, document.getElementById('app'));
