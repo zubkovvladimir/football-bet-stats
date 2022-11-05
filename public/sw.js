@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable no-restricted-globals */
+// @ts-nocheck
 const staticCacheName = 's-app-v3';
 const dynamicCacheName = 'd-app-v3';
 
@@ -24,8 +27,6 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
   if (url.origin === location.origin) {
     event.respondWith(cacheFirst(request));
-  } else {
-    event.respondWith(networkFirst(request));
   }
 });
 
