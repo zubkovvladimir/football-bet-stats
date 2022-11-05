@@ -33,3 +33,16 @@ body {
 .ant-pagination {
   background-color: #fff;
 }
+
+.ant-table-thead > tr > th {
+  background-color: #3e1313;
+}
+
+.ant-table-tbody > tr.ant-table-row-selected > td {
+  background-color: #3e5007;
+}
+
+.ant-table-tbody > tr.ant-table-row:hover > td,
+.ant-table-tbody > tr > td.ant-table-cell-row-hover {
+  background: #8b8b8b;
+}

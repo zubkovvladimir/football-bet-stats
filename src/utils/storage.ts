@@ -8,6 +8,14 @@ const storage = {
   clearToken: (): void => {
     window.localStorage.removeItem(storageTokenName);
   },
+
+  getItem(name: string): null | unknown {
+    const itemFromLS = localStorage.getItem(name);
+    return itemFromLS !== null ? JSON.parse(itemFromLS) : null;
+  },
+  setItem(name: string, value: unknown): void {
+    localStorage.setItem(name, JSON.stringify(value));
+  },
 };
 
 export default storage;
